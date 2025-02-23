@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import '../style/navbar.css'
 
-export const Navbar = () => {
-  const [loged, setLoged] = useState(false);
+export const Navbar = ({ search, setSearch }) => {
+  const [loged, setLoged] = useState(false)
+  
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
     if (token) {
-      setLoged(true);
+      setLoged(true)
     } else {
-      setLoged(false);
+      setLoged(false)
     }
   }, []);
 
@@ -25,9 +26,12 @@ export const Navbar = () => {
     <>
      <nav>
 
-        <img src="" />
+        <img src="https://www.pngall.com/wp-content/uploads/8/Cooking-Recipe-PNG-Images.png" />
 <div>
-      <Link to="/">Home</Link>
+
+        
+
+      <Link to="/" >Home</Link>
       
       {loged ? (
         <>

@@ -6,7 +6,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 100px;
-  
+    background-color: rgb(244, 240, 236);
+    position: fixed;
+    top: 0px;
+   width: 100%;
+    z-index: 100;
   }
   
 
@@ -33,18 +37,18 @@
   
  .Login{
   background-color: #27e5e2;
+  border: 1px solid #ffffff; 
+  color: white;
  }
 
    
  .Login:hover{
    background-color: white;
-   border: 1px solid #27e5e2; ;
+   border: 1px solid #27e5e2; 
+   color:  #27e5e2; ;
    }
 
-  nav a:hover {
-    background-color: #b2d5d5;
-  }
-  
+ 
 
   
 

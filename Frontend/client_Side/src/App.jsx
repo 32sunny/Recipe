@@ -7,17 +7,21 @@ import { Navbar } from './Navbar/navbar'
 import { Home } from './Component/Home'
 
 
+
 function App() {
+
+
+
 
 
 
 function Allcomponent(){
     return (
       <>
-        <Navbar/>
+       <Navbar/>
         
         <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={ <Home/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
       
