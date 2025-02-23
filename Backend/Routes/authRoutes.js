@@ -20,10 +20,9 @@ try {
 
 authRoute.get('/', async (req, res) => {
     try {
-        const recipe_data = "https://api.spoonacular.com/recipes/716429/information?apiKey=87f340ac916042e794ee5f49036f28dc"
-        const res = await FetchData(recipe_data)
-      
-        console.log(res)
+        const recipe_data = "https://dummyjson.com/recipes?limit=50"
+        const data = await FetchData(recipe_data)
+         res.json(data)
         
     } catch (error) {
         console.log(error);
