@@ -1,38 +1,46 @@
-import React, { useState } from 'react'
-import { NavLink, Link } from "react-router-dom";
-import { useEffect  } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import '../style/navbar.css'
 
 export const Navbar = () => {
+  const [loged, setLoged] = useState(false);
 
-   const[loged , setloged] = useState('')
-
-
-    useEffect(() => {
-    const token = localStorage.getItem("token");
-    setloged(token)
-    if(token){
-        console.log(loged)
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setLoged(true);
+    } else {
+      setLoged(false);
     }
-    else{
-        console.log(" logout ")
+  }, []);
 
-    }
-    }, [loged]);
-   
   function handleLogout() {
-    localStorage.removeItem("token");
-    alert("LogOut SuccessFull")
+    localStorage.removeItem('token');
+    setLoged(false); 
+    alert('LogOut Successful');
     window.location.reload();
   }
 
   return (
     <>
-    <Link to='/' >Home</Link>
-    <Link to='/login' >Login</Link>
-    <Link to='/signup' >Sign Up</Link>
-    <Link to='/' onClick={handleLogout} >Log Out 😊 </Link>
+     <nav>
 
+        <img src="" />
+<div>
+      <Link to="/">Home</Link>
+      
+      {loged ? (
+        <>
+          <Link to="/" onClick={handleLogout} className='Login'>
+            Log Out
+          </Link>
+        </>
+      ) : (
+        <Link to="/login" className='Login'>Login</Link>
+      )}
+</div>
+     
+      </nav>
     </>
-  )
-}
+  );
+};

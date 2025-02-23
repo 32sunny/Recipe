@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import '../style/login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -25,6 +25,7 @@ const Login = () => {
     setEmail('')
     setPassword('')
     await navigate('/')
+    window.location.reload();
 
   } catch (error) {
     alert('something wrong')
@@ -33,7 +34,8 @@ const Login = () => {
   }
 
   return (
-    <div >
+    <div className='login_body'>
+    <div className='container_login'>
 
       <h2>Login</h2>
       <form onSubmit={handleSubmit} className='login-form '>
@@ -44,6 +46,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className='INput_My'
           />
        
        
@@ -54,12 +57,14 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className='INput_My'
           />
       
       
         <button type="submit">Login</button>
 
       </form>
+    </div>
     </div>
   );
 };

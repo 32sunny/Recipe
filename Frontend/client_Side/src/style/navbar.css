@@ -1,0 +1,55 @@
+
+
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+  
+  }
+  
+
+  nav img {
+    height: 40px; 
+  }
+  
+
+  nav div {
+    display: flex;
+    gap: 20px;
+  }
+  
+
+  nav a {
+    color: #504e4e;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+ .Login{
+  background-color: #27e5e2;
+ }
+
+   
+ .Login:hover{
+   background-color: white;
+   border: 1px solid #27e5e2; ;
+   }
+
+  nav a:hover {
+    background-color: #b2d5d5;
+  }
+  
+
+  
+
+  nav .logged-in a {
+    color: #28a745;
+  }
+  
+  
