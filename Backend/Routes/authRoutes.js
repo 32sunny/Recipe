@@ -7,6 +7,7 @@ const authRoute = express.Router();
 const JWT_SECRET = 'Recipe_secret_key';
 
 
+
 async function FetchData(url){
 try {
     let res = await fetch(url);
@@ -17,12 +18,24 @@ try {
 }
 }
 
-
-authRoute.get('/', async (req, res) => {
+// to get all data
+authRoute.get('/Data', async (req, res) => {
     try {
-        const recipe_data = "https://dummyjson.com/recipes?limit=50"
+        const recipe_data = "https://dummyjson.com/recipes?limit=100"
         const data = await FetchData(recipe_data)
          res.json(data)
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "Something Went wrong"});
+    }
+})
+
+// to get all users
+authRoute.get('/users', async (req, res) => {
+    try { 
+        const users = await User.find({})
+         res.json(users)
         
     } catch (error) {
         console.log(error);
@@ -36,16 +49,15 @@ authRoute.get('/', async (req, res) => {
 authRoute.post('/register', async (req, res) => {
     try {
         const { Username, email, password } = req.body;
-        console.log("red")
+        // console.log("red")
         const hashPassword = await bcrypt.hash(password, 10);
 
-        const newUser = new User({
+        const newUser = await User.create({ 
             Username,
             email,
             password: hashPassword,
         });
-
-        await newUser.save();
+        
 
         res.status(201).json({ message: 'User registered successfully' })
     } catch (error) {
