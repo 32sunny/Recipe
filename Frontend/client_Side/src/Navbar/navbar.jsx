@@ -56,8 +56,8 @@ export const Navbar = ({ search, setSearch }) => {
         
 
       <Link to="/" >Home</Link>
-      <Link to="/Cart">Cart {MyDart.length > 0 ? MyDart.length : 0}</Link>
-            
+      <Link to="/Cart">Cart 🛒</Link>
+
       <div className={loged ? 'profile' : ''}>
        <p  className='email_user'> <ul>{email}</ul></p>
       {loged ? (

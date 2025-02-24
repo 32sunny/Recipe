@@ -18,7 +18,7 @@ async function HandleSubmit(e){
    
       
     try {
-        const  response =  await axios.post('http://localhost:2000/auth/register' , {
+        const  response =  await axios.post('https://recipe-1dy1.onrender.com/auth/register' , {
             Username,
             email,
             password

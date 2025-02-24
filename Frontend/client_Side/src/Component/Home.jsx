@@ -22,7 +22,7 @@ export const Home = () => {
 
   async function FetchData() {
     try {
-      let res = await fetch("http://localhost:2000/auth/Data");
+      let res = await fetch("https://recipe-1dy1.onrender.com/auth/Data");
       let data = await res.json();
       const newData = data.recipes;
       setRecipe(newData);
