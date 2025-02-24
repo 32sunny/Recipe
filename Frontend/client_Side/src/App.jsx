@@ -5,15 +5,11 @@ import { Signup } from './Authentication/Signup'
 import Login from './Authentication/Login'
 import { Navbar } from './Navbar/navbar'
 import { Home } from './Component/Home'
+import { CartPage } from './Component/CartPage'
 
 
 
 function App() {
-
-
-
-
-
 
 function Allcomponent(){
     return (
@@ -24,6 +20,7 @@ function Allcomponent(){
         <Route path='/' element={ <Home/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/Cart' element={<CartPage/>} />
       
         </Routes>
       </>

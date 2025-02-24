@@ -4,10 +4,30 @@ import '../style/navbar.css'
 
 export const Navbar = ({ search, setSearch }) => {
   const [loged, setLoged] = useState(false)
-  
+  const [email ,setemail] =useState('')
+  const [MyDart , setCart ] = useState([])
+
+
 
   useEffect(() => {
     const token = localStorage.getItem('token')
+    const user = localStorage.getItem('email')
+    const CartData = localStorage.getItem('Cart')
+
+
+    if (CartData) {
+      try {
+        setCart(JSON.parse(CartData))
+      } catch (error) {
+        console.error('Error parsing cart data:', error)
+        setCart([]); 
+      }
+    } else {
+      setCart([]); 
+    }
+
+
+    setemail(user)
     if (token) {
       setLoged(true)
     } else {
@@ -15,8 +35,12 @@ export const Navbar = ({ search, setSearch }) => {
     }
   }, []);
 
+  console.log(email)
+
+
   function handleLogout() {
-    localStorage.removeItem('token');
+    localStorage.clear();
+
     setLoged(false); 
     alert('LogOut Successful');
     window.location.reload();
@@ -32,7 +56,10 @@ export const Navbar = ({ search, setSearch }) => {
         
 
       <Link to="/" >Home</Link>
-      
+      <Link to="/Cart">Cart {MyDart.length > 0 ? MyDart.length : 0}</Link>
+            
+      <div className={loged ? 'profile' : ''}>
+       <p  className='email_user'> <ul>{email}</ul></p>
       {loged ? (
         <>
           <Link to="/" onClick={handleLogout} className='Login'>
@@ -42,6 +69,7 @@ export const Navbar = ({ search, setSearch }) => {
       ) : (
         <Link to="/login" className='Login'>Login</Link>
       )}
+</div>
 </div>
      
       </nav>
